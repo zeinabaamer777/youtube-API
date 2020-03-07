@@ -16,6 +16,7 @@ export class YoutubeService {
     let url = 'https://www.googleapis.com/youtube/v3/search?key=' + this.apiKey + '&channelId=' + channel + '&order=date&part=snippet &type=video,id&maxResults=' + maxResults
     return this.http.get(url)
       .pipe(map((res) => {
+        console.log(res);
         return res;
       }))
   }

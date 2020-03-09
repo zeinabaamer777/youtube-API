@@ -10,19 +10,21 @@ import { CommonModule } from '@angular/common';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
-import { AppRoutingModule } from './app-routing.module';
 import { VideosComponent } from './videos/videos.component';
 import { DetailsComponent } from './details/details.component';
-const appRoutes: Routes = [
-  { path: '/details', component: DetailsComponent }
-];
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { AppRoutingModule } from './app-routing.module';
+// const appRoutes: Routes = [
+//   // { path: '/details', component: DetailsComponent }
+// ];
 
 
 @NgModule({
   declarations: [
     AppComponent,
     DetailsComponent,
-    VideosComponent
+    VideosComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule,
@@ -30,9 +32,9 @@ const appRoutes: Routes = [
     CommonModule,
     HttpClientModule,
     NgxSpinnerModule,
+    AppRoutingModule,
     RouterModule,
     BrowserAnimationsModule,
-    AppRoutingModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],

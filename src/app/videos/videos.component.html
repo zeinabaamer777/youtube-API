@@ -11,13 +11,13 @@
       <p style="font-size: 20px; color: white">Loading...</p>
     </ngx-spinner>
     <div class="row">
-    
+
         <table class="table table-bordered border-0 shadow vh-50">
             <thead>
                 <th *ngFor="let head of headElements" scope="col">{{head}}</th>
               </thead>
               <tbody>
-                 <tr  *ngFor="let video of videos" [class.selected]="video === selectedVideo">
+                 <tr *ngFor="let video of videos">
                     <td>
                       <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
                         <img [src]="video.snippet.thumbnails.medium.url" alt="...">
@@ -28,19 +28,18 @@
                     </td>
                     <td>
                         <div>{{video.snippet.publishedAt}}</div>
-                        <!-- <div class="text-black-50">{{video.snippet.description.slice(0, 100)}}</div> -->
                     </td>
                     <td>
-                      <!-- <a  class="btn btn-light text-black-50">Details</a> -->
-                      <a   class="btn btn-light text-black-50">Details</a>
+                      <!-- routerLink="details/{{video.id.videoId}}" -->
+                      <a  (click)="getVideo(video)"  class="btn btn-success btn-lg">Details</a>
                     </td>
                  </tr>
             </tbody>
        </table>
-  
+
     </div>
     <!-- /.row -->
+    <router-outlet></router-outlet>
   </div>
   <!-- /.container -->
-  <router-outlet></router-outlet>
-  
+

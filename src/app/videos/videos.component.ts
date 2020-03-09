@@ -1,8 +1,10 @@
 import { Component } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Subject, from } from 'rxjs';
 import { NgxSpinnerService } from 'ngx-spinner';
 import { YoutubeService } from '../youtube.service';
 import { takeUntil } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({
@@ -11,13 +13,16 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
   styleUrls: ['./videos.component.css']
 })
 export class VideosComponent {
-  youtubeChannel : string =  "Traversy Media"; 
+  youtubeChannel : string =  "Traversy Media";
   headElements = ['Thumb', 'Title', 'Publish Date', 'Details'];
   videos: any[];
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
-  constructor(private spinner: NgxSpinnerService, private youTubeService: YoutubeService) { }
- 
+  constructor(
+    private spinner: NgxSpinnerService,
+    private youTubeService: YoutubeService,
+    private router: Router) { }
+
   ngOnInit() {
     this.spinner.show()
     setTimeout(()=>
@@ -33,6 +38,11 @@ export class VideosComponent {
           this.videos.push(element)
         }
       });
+  };
+   getVideo(video) {
+    this.router.navigate(['/videos', video.id.videoId])
   }
+
+
 }
 

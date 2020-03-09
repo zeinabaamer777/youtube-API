@@ -20,4 +20,7 @@ export class YoutubeService {
         return res;
       }))
   }
+  getVideo(VideoId){
+    return this.http.get(`${this.apiKey + 'contacts'}/${VideoId}`)
+   }
 }

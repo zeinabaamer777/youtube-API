@@ -39,10 +39,9 @@ export class VideosComponent {
         }
       });
   };
+  
    getVideo(video) {
     this.router.navigate(['/videos', video.id.videoId])
   }
-
-
 }
 

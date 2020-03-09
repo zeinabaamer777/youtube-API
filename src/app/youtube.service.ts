@@ -20,7 +20,13 @@ export class YoutubeService {
         return res;
       }))
   }
-  getVideo(VideoId){
-    return this.http.get(`${this.apiKey + 'contacts'}/${VideoId}`)
+
+  // https://www.googleapis.com/youtube/v3/videos?part=player&id='videoId'&key='+ this.apiKey
+
+  getVideoFromService(id: any): Observable<object>{
+    // let vUrl = 'https://www.youtube.com/watch?v='+id;
+    let vUrl = 'https://www.googleapis.com/youtube/v3/videos?part=player&id='+id+'&key='+ this.apiKey;
+    return this.http.get(vUrl)
    }
-}
+
+  }

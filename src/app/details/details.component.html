@@ -1,0 +1,12 @@
+<div *ngIf="video">
+    <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
+        <img [src]="video.snippet.thumbnails.medium.url" alt="...">
+      </a>
+
+      <h6>{{video.snippet.title}}</h6>
+
+      <div>{{video.snippet.publishedAt}}</div>
+      <div class="text-black-50">{{video.snippet.description.slice(0, 100)}}</div>
+      <div class="">{{video.statistics.viewCount}}</div>
+
+  </div>

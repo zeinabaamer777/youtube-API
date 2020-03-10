@@ -1,12 +1,37 @@
-<div>
-  <h3>{{video.items && video.items[0]?.id}}</h3>
-      <!-- <img [src]="singleVideo.snippet.thumbnails.medium.url" alt="...">     
+<div class="container">
 
-      <h6>{{singleVideo.snippet.title}}</h6>
+    <iframe width="100%" height="500px" [src]="srcurl" frameborder="0"  allowfullscreen></iframe>
+    <div class="displayed-content">
+        <h3>{{snippet?.title}}</h3>
+        <div class="info-details">
+          <div class="row">
 
-      <div>{{singleVideo.snippet.publishedAt}}</div>
-      <div class="text-black-50">{{singleVideo.snippet.description.slice(0, 100)}}</div> -->
-      <div class=""></div> 
+            <div class="col-md-3">
+              <h6><i class="fa fa-clock"></i><i class="fa fa-clock-o"></i>  Duration : <span>{{contentDetails?.duration}}</span></h6>
+            </div>
+            <div class="col-md-3">
+              <h6><i class="fa fa-eye"></i>  Number of Views : <span>{{statistics?.viewCount}}</span></h6>
+            </div>
+            <div class="col-md-3">
+              <h6><i  class="fa fa-heart"></i>  Number of Likes : <span>{{statistics?.likeCount}}</span></h6>
+            </div>
+            <div class="col-md-3"></div>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-md-6">
+            <h6 class="pub-date text-capitalize">published on : <span>{{snippet?.publishedAt}}</span></h6>
+          </div>
+        </div>
+
+        <!-- <p>{{video.items[0].snippet?.description.slice(0,300)}}</p> -->
+        <p>{{snippet?.description.slice(0,500)}}</p>
+    </div>
+
+<a [routerLink]="['/videos']" routerLinkActive="active" class="backLink"><i class="fa fa-angle-double-left"></i> Back To Videos List Page</a>
+
+
+
 
 </div>
-<p>Aamer</p>

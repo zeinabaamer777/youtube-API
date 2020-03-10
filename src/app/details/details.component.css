@@ -1,0 +1,18 @@
+.displayed-content{
+  padding: 20px 30px;
+  border: 1px solid  #e2e2ee;
+  border-top: none;
+}
+.displayed-content .info-details{
+  padding: 15px 0;
+  margin: 5px 0;
+  border-top: 1px solid #e2e2e2;
+  border-bottom: 1px solid #e2e2e2;
+}
+.backLink{
+  position: relative;
+    padding: 20px 0;
+    margin-top: 15px;
+    display: block;
+    color:#28a745;
+}

@@ -1,44 +1,42 @@
 <!-- Page Content -->
 <div class="container">
     <!-- header -->
-    <header class="bg-success text-center p-2  py-3 mb-4">
-      <div class="container">
+    <header class="bg-success text-center p-2 py-3 mb-4">
         <h1 class="font-weight-light text-white">
-          <i class="fab fa-youtube"></i> <a class="text-white" href="#">{{youtubeChannel}}</a></h1>
-      </div>
+          <i class="fa fa-youtube"></i>
+          <a class="text-white" href="#">{{youtubeChannel}}</a>
+        </h1>
     </header>
     <ngx-spinner bdColor="rgba(51,51,51,0.8)" size="medium" color="#fff" type="ball-scale-multiple">
       <p style="font-size: 20px; color: white">Loading...</p>
     </ngx-spinner>
-    <div class="row">
-
         <table class="table table-bordered border-0 shadow vh-50">
             <thead>
                 <th *ngFor="let head of headElements" scope="col">{{head}}</th>
               </thead>
               <tbody>
-                 <tr *ngFor="let video of videos">
+                 <tr *ngFor="let video of videos  | paginate:{itemsPerPage: 6, currentPage:p}">
                     <td>
                       <a href="https://www.youtube.com/watch?v={{video.id.videoId}}" target="_blank">
-                        <img [src]="video.snippet.thumbnails.medium.url" alt="...">
+                        <img [src]="video.snippet.thumbnails.default.url" alt="...">
                       </a>
                     </td>
                     <td>
-                        <h6>{{video.snippet.title}}</h6>
+                        <p>{{video.snippet.title}}</p>
                     </td>
                     <td>
                         <div>{{video.snippet.publishedAt}}</div>
                     </td>
                     <td>
                       <!-- routerLink="details/{{video.id.videoId}}" -->
-                      <a  (click)="getVideo(video)"  class="btn btn-success btn-lg">Details</a>
+                      <a  (click)="getVideo(video)"  class="btn btn-success btn-md text-white">Details</a>
                     </td>
                  </tr>
-            </tbody>
-       </table>
 
-    </div>
-    <!-- /.row -->
+            </tbody>
+
+       </table>
+       <pagination-controls (pageChange)="p=$event"></pagination-controls>
     <router-outlet></router-outlet>
   </div>
   <!-- /.container -->

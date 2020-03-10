@@ -6,7 +6,7 @@ import { takeUntil } from 'rxjs/operators';
 import { Router } from '@angular/router';
 import { ActivatedRoute } from '@angular/router';
 import { trigger, state, style, transition, animate } from '@angular/animations';
-
+import { NgxPaginationModule } from 'ngx-pagination';
 @Component({
   selector: 'app-videos',
   templateUrl: './videos.component.html',
@@ -15,6 +15,7 @@ import { trigger, state, style, transition, animate } from '@angular/animations'
 export class VideosComponent {
   youtubeChannel : string =  "Traversy Media";
   headElements = ['Thumb', 'Title', 'Publish Date', 'Details'];
+
   videos: any[];
   private destroy$: Subject<boolean> = new Subject<boolean>();
 
@@ -35,11 +36,12 @@ export class VideosComponent {
       .pipe(takeUntil(this.destroy$))
       .subscribe(lista => {
         for (let element of lista["items"]) {
-          this.videos.push(element)
+          this.videos.push(element);
+          console.log(this.videos)
         }
       });
   };
-  
+
    getVideo(video) {
     this.router.navigate(['/videos', video.id.videoId])
   }

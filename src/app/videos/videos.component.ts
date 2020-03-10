@@ -18,6 +18,7 @@ export class VideosComponent {
 
   videos: any[];
   private destroy$: Subject<boolean> = new Subject<boolean>();
+  filteredItems: any;
 
   constructor(
     private spinner: NgxSpinnerService,
@@ -41,8 +42,7 @@ export class VideosComponent {
         }
       });
   };
-
-   getVideo(video) {
+   goToDetailsById(video) {
     this.router.navigate(['/videos', video.id.videoId])
   }
 }

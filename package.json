@@ -7,7 +7,10 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "compodoc": "npx compodoc -p tsconfig.app.json",
+    "generate-docs":"compodoc -p tsconfig.app.json",
+    "serve-docs":"compodoc -s tsconfig.app.json"
   },
   "private": true,
   "dependencies": {
@@ -22,6 +25,7 @@
     "@angular/router": "~8.2.14",
     "@angular/service-worker": "~8.2.14",
     "@angular/youtube-player": "^9.1.1",
+    "@compodoc/compodoc": "^1.1.11",
     "angular-font-awesome": "^3.1.2",
     "angular-youtube-player": "^1.0.3",
     "bootstrap": "^4.4.1",
@@ -32,6 +36,7 @@
     "popper.js": "^1.16.1",
     "rxjs": "~6.4.0",
     "rxjs-compat": "^6.5.4",
+    "save-dev": "0.0.1-security",
     "tslib": "^1.10.0",
     "zone.js": "~0.9.1"
   },

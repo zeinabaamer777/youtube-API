@@ -10,10 +10,6 @@ const routes: Routes = [
   { path: '',   redirectTo: '/videos', pathMatch: 'full' },
   { path: 'videos', component: VideosComponent },
   { path: 'videos/:id', component: DetailsComponent },
-
-
-  // { path: 'video/:Id', component: DetailsComponent },
-
   { path: '**', component: PageNotFoundComponent }
 
 ];
